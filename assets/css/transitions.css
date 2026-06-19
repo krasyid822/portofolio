@@ -1,0 +1,72 @@
+/* ============================================================
+   TRANSITIONS — Page Routing, Scan-Line, Circular Reveal, RGB Splash
+   ============================================================ */
+
+/* ─── Page Routing Visibility ─── */
+.page-section {
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.page-section.inactive {
+    display: none !important;
+}
+
+/* ─── RGB Background Splash Overlay ─── */
+.rgb-splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff0000, #00ff00, #0000ff);
+    background-size: 300% 300%;
+    z-index: 99999;
+    pointer-events: none;
+    animation: rgb-sweep 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0.12;
+}
+
+@keyframes rgb-sweep {
+    0% {
+        background-position: 0% 50%;
+        opacity: 0.6;
+    }
+
+    40% {
+        background-position: 100% 50%;
+        opacity: 0.4;
+    }
+
+    100% {
+        background-position: 0% 50%;
+        opacity: 0;
+        display: none;
+    }
+}
+
+/* ─── Canvas Scan-Line Transition Overlay ─── */
+#scan-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: 1;
+    display: none;
+}
+
+/* ─── Circular Reveal Transition Overlay ─── */
+#transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    display: none;
+}

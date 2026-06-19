@@ -1,0 +1,82 @@
+/* ============================================================
+   DESIGN SYSTEM — CSS Variables, Reset & Base Styles
+   ============================================================ */
+
+:root {
+    --pixel-font: 'Silkscreen', monospace;
+    --terminal-font: 'VT323', monospace;
+    --code-font: 'JetBrains Mono', monospace;
+
+    /* Pure Retro Dark Colors */
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --text-muted: #aaaaaa;
+    --accent-color: #8b5cf6;
+    /* Purple matching profile image */
+    --accent-glow: rgba(139, 92, 246, 0.6);
+    --card-border: 2px dashed var(--text-color);
+    --card-border-soft: rgba(255, 255, 255, 0.25);
+    --ants-color: #ffffff;
+}
+
+/* Light Theme Overrides */
+body.light-theme {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --text-muted: #444444;
+    --ants-color: #000000;
+    --card-border: 2px dashed #000000;
+    --card-border-soft: rgba(0, 0, 0, 0.25);
+}
+
+/* Support variant settings via body dark */
+body.dark[data-theme="soft"] {
+    --accent-color: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.6);
+}
+
+body.dark[data-theme="dim"] {
+    --accent-color: #fb923c;
+    --accent-glow: rgba(251, 146, 60, 0.6);
+}
+
+body.dark[data-theme="amoled"] {
+    --accent-color: #a855f7;
+    --accent-glow: rgba(168, 85, 247, 0.6);
+}
+
+body.dark[data-theme="gold"] {
+    --accent-color: #fbbf24;
+    --accent-glow: rgba(251, 191, 36, 0.6);
+    --text-color: #fef3c7;
+    --text-muted: #d4a574;
+}
+
+body.dark[data-theme="emerland"] {
+    --accent-color: #34d399;
+    --accent-glow: rgba(52, 211, 153, 0.6);
+    --text-color: #d1fae5;
+    --text-muted: #6ee7b7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) var(--bg-color);
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--terminal-font);
+    font-size: 1.5rem;
+    line-height: 1.4;
+}

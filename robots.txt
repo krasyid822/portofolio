@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portofolio.rasyidkurniawan.my.id/sitemap.xml

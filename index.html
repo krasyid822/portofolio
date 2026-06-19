@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rasyid Kurniawan — Retro Portofolio | Developer & TRPL Mahasiswa</title>
+    <meta name="description"
+        content="Portofolio retro Rasyid Kurniawan, Mahasiswa TRPL Politeknik Negeri Medan. Menampilkan keahlian web development, agentic development, dan proyek-proyek vanilla web & Flutter.">
+    <meta name="keywords"
+        content="Rasyid Kurniawan, TRPL, Politeknik Negeri Medan, Retro, Pixel Art, Web Portfolio, Developer, Agentic Development">
+    <meta name="author" content="Rasyid Kurniawan">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://portofolio.rasyidkurniawan.my.id/">
+    <meta property="og:title" content="Rasyid Kurniawan — Retro Portofolio">
+    <meta property="og:description"
+        content="Portofolio retro Rasyid Kurniawan, Mahasiswa TRPL Politeknik Negeri Medan. Menampilkan keahlian web development dengan gaya pixel-art.">
+    <meta property="og:image" content="https://portofolio.rasyidkurniawan.my.id/rsc/jpg/me.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://portofolio.rasyidkurniawan.my.id/">
+    <meta name="twitter:title" content="Rasyid Kurniawan — Retro Portofolio">
+    <meta name="twitter:description"
+        content="Portofolio retro Rasyid Kurniawan, Mahasiswa TRPL Politeknik Negeri Medan.">
+    <meta name="twitter:image" content="https://portofolio.rasyidkurniawan.my.id/rsc/jpg/me.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://portofolio.rasyidkurniawan.my.id/">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rasyid Kurniawan",
+        "url": "https://portofolio.rasyidkurniawan.my.id/",
+        "image": "https://portofolio.rasyidkurniawan.my.id/rsc/jpg/me.jpg",
+        "jobTitle": "Web Developer",
+        "alumniOf": "Politeknik Negeri Medan",
+        "knowsAbout": ["Web Development", "Agentic Development", "Vanilla JavaScript", "Flutter Web", "PWA"],
+        "sameAs": [
+            "https://github.com/krasyid822/",
+            "https://rasyid822.wordpress.com/"
+        ]
+    }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Silkscreen:wght@400;700&family=VT323&display=block"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Icons & Manifest -->
+    <link rel="icon" type="image/jpg" sizes="32x32" href="rsc/jpg/me.jpg">
+    <link rel="manifest" href="manifest.json">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+
+    <!-- Theme & App capable tags -->
+    <meta name="theme-color" content="#000000">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- External CSS (Clean Architecture) -->
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/transitions.css">
+    <link rel="stylesheet" href="assets/css/balloon-popup.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Font Loading: hide page until fonts are ready -->
+    <script>
+        document.documentElement.style.visibility = 'hidden';
+        document.fonts.ready.then(function () {
+            document.documentElement.style.visibility = '';
+        });
+        setTimeout(function () {
+            document.documentElement.style.visibility = '';
+        }, 3000);
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Background RGB Splash Overlay -->
+    <div class="rgb-splash" aria-hidden="true"></div>
+
+    <!-- Canvas Scan-Line Transition Overlay (for page navigation) -->
+    <canvas id="scan-canvas" aria-hidden="true"></canvas>
+
+    <!-- Circular Reveal Transition Overlay (for theme toggle) -->
+    <div id="transition-overlay" aria-hidden="true"></div>
+
+    <!-- Fallback if JS is disabled -->
+    <noscript>
+        <div
+            style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #000000; color: #ffffff; z-index: 99999; display: flex; align-items: center; justify-content: center; font-family: 'Silkscreen', monospace; text-align: center; padding: 20px;">
+            <div>
+                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzgwY2Jnc2FybTllOHhzMHllZXV6c29iYzRkYnYxNmZ6bHhpZzhheiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tXL4FHPSnVJ0A/giphy.gif"
+                    alt="Rebahan"
+                    style="border: 2px dashed #ffffff; border-radius: 8px; margin-bottom: 20px; max-width: 100%;">
+                <p>Mesin JavaScript mati, ya gimana rebahan lah guweh</p>
+                <a href="https://www.google.com/search?q=cara+mengaktifkan+javascript+di+browser" target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: #8b5cf6; text-decoration: underline; display: block; margin-top: 10px;">Cara Aktifkan
+                    JavaScript ↗</a>
+            </div>
+        </div>
+    </noscript>
+
+    <!-- Top Navigation -->
+    <header class="top-nav" role="banner">
+        <div class="container nav-flex">
+            <a href="#" class="logo" aria-label="Beranda Rasyid Kurniawan">
+                <span class="subdomain">portofolio.</span><span class="main-domain">RasyidKurniawan.my.id</span>
+            </a>
+            <nav class="nav-links" role="navigation" aria-label="Navigasi utama">
+                <a href="#" class="nav-tab-btn active" data-target="page-home" aria-current="page">Home</a>
+                <a href="#about" class="nav-tab-btn" data-target="page-about">About & Skills</a>
+                <a href="#featured" class="nav-tab-btn" data-target="page-projects">Project</a>
+                <a href="https://github.com/krasyid822/" data-popup data-title="GitHub — krasyid822">GitHub</a>
+                <a href="https://rasyid822.wordpress.com/" data-popup data-title="Blog — Rasyid Kurniawan">Blog</a>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Ganti tema (Dark/Gold/Emerald/Light)">[
+                    Light ]</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero container page-section" id="page-home" aria-label="Beranda">
+        <div class="hero-grid">
+            <!-- Left Side: Content -->
+            <div class="hero-content">
+                <div class="hero-hello" aria-hidden="true">Hello>></div>
+                <div class="hero-name-container">
+                    <h1 class="hero-main-name">I'm Rasyid</h1>
+                    <div class="hero-sub-name">
+                        <Rasyid Kurniawan>
+                    </div>
+                </div>
+                <div class="hero-role-container">
+                    <p class="hero-role-title">Mahasiswa TRPL</p>
+                    <p class="hero-role-desc">Mobile • AI • Data Mining<br>Predictive Systems</p>
+                </div>
+                <div class="hero-actions">
+                    <a href="https://showcase.trpl.polmed.ac.id/talent/ras822" data-popup
+                        data-title="Polmed Experiences" class="retro-link-btn">
+                        <Polmed Experiences>
+                    </a>
+                    <a href="mailto:krasyid822@gmail.com" class="retro-link-btn">
+                        <Mailto Me>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side: Profile Image with Dashed Lines -->
+            <div class="hero-image-area">
+                <div class="dashed-lines-bg" aria-hidden="true">
+                    <div class="dashed-line"></div>
+                    <div class="dashed-line"></div>
+                    <div class="dashed-line"></div>
+                    <div class="dashed-line"></div>
+                </div>
+                <div class="profile-pic-wrapper">
+                    <img src="rsc/jpg/me.svg" alt="Rasyid Kurniawan" class="profile-pic" loading="eager"
+                        onerror="this.src='rsc/jpg/me-old.jpg'">
+                </div>
+            </div>
+        </div>
+
+        <a href="#about" class="scroll-indicator nav-tab-btn" data-target="page-about" aria-label="Scroll ke About">
+            <span>scroll</span>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </a>
+    </section>
+
+    <!-- Main Content Grid: About & Workflow -->
+    <main class="container grid-two-col page-section inactive" id="page-about"
+        style="padding-top: 16px; padding-bottom: 16px; align-content: start;" aria-label="Tentang Saya & Keahlian">
+        <!-- About Section -->
+        <section class="retro-card">
+            <h2 class="section-title"><i class="fas fa-user" aria-hidden="true"></i> Tentang Saya</h2>
+            <p class="about-p">
+                Rasyid Kurniawan adalah mahasiswa program studi <strong>Teknologi Rekayasa Perangkat Lunak
+                    (TRPL)</strong> di Politeknik Negeri Medan (angkatan 2023). Berkomitmen untuk membangun portofolio
+                proyek yang tidak hanya menjadi bekal magang, tetapi juga dapat langsung diangkat menjadi judul skripsi.
+            </p>
+            <p class="about-p">
+                Saya aktif mengembangkan kompetensi di empat bidang utama yang menjadi fokus prodi TRPL:
+                <strong>Pengembangan Sistem & Aplikasi Mobile</strong>, <strong>Kecerdasan Buatan & Data
+                    Mining</strong>,
+                <strong>Sistem Prediksi & Pengendalian</strong>, serta <strong>Perancangan Database &
+                    Prototype</strong>.
+                Setiap proyek yang saya bangun dirancang untuk memiliki pengguna nyata dan diterapkan langsung di
+                instansi terkait.
+            </p>
+            <p class="about-p">
+                Telah tersertifikasi kompeten dalam bidang <strong>Dasar Front End Web Developer (2024)</strong> serta
+                menyelesaikan Sekolah Mentor UKMI Polmed (2025). Saya proaktif menawarkan solusi — bukan menunggu
+                perintah — dengan mengobservasi masalah di instansi dan menawarkan diri untuk membangun aplikasi yang
+                dibutuhkan. Target saya: magang di perusahaan swasta, BUMN, atau software house yang memberikan
+                proyek sesuai bidang komputer, bukan pekerjaan administratif.
+            </p>
+        </section>
+
+        <!-- Skills Section — 4 Kompetensi Utama -->
+        <section id="skills" class="retro-card">
+            <h2 class="section-title"><i class="fa-solid fa-brain" aria-hidden="true"></i> Kompetensi Utama</h2>
+
+            <div class="skills-showcase">
+
+                <!-- 1. Pengembangan Sistem & Aplikasi Mobile -->
+                <div class="skill-progress-item">
+                    <div class="skill-name-pct">
+                        <span><i class="fa-solid fa-mobile-screen-button" style="color: var(--accent-color);"
+                                aria-hidden="true"></i> Pengembangan Sistem & Aplikasi Mobile</span>
+                        <span style="color: var(--accent-color);">90%</span>
+                    </div>
+                    <div class="skill-track" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                        aria-label="Pengembangan Sistem & Aplikasi Mobile 90%">
+                        <div class="skill-fill" style="width: 90%;"></div>
+                    </div>
+                    <p class="skill-desc">
+                        Membangun aplikasi mobile multiplatform menggunakan <strong>Flutter</strong> dan pengembangan
+                        sistem berbasis web (<strong>PWA</strong>, <strong>Vanilla JS</strong>). Fokus pada aplikasi
+                        yang memiliki pengguna nyata — bukan sekadar tugas kuliah. Ke depannya akan memperdalam
+                        <strong>Kotlin</strong> (Android native) dan <strong>React Native</strong> untuk memperluas
+                        peluang magang di perusahaan swasta maupun software house.
+                    </p>
+                </div>
+
+                <!-- 2. Kecerdasan Buatan & Data Mining -->
+                <div class="skill-progress-item">
+                    <div class="skill-name-pct">
+                        <span><i class="fa-solid fa-brain" style="color: #a78bfa;" aria-hidden="true"></i> Kecerdasan
+                            Buatan & Data Mining</span>
+                        <span style="color: #a78bfa;">75%</span>
+                    </div>
+                    <div class="skill-track" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                        aria-label="Kecerdasan Buatan & Data Mining 75%">
+                        <div class="skill-fill" style="width: 75%; background: #a78bfa;"></div>
+                    </div>
+                    <p class="skill-desc">
+                        Mengolah data mentah menjadi wawasan yang dapat ditindaklanjuti menggunakan algoritma
+                        <strong>machine learning</strong> dan teknik <strong>data mining</strong>. Berpengalaman
+                        dengan <strong>Python</strong>, <strong>pandas</strong>, <strong>scikit-learn</strong>, dan
+                        <strong>Jupyter Notebook</strong>. Target: membangun sistem prediksi dan klasifikasi yang
+                        dapat diangkat menjadi judul skripsi, seperti prediksi autisme, prediksi hasil panen, atau
+                        sistem rekomendasi.
+                    </p>
+                </div>
+
+                <!-- 3. Sistem Prediksi & Pengendalian -->
+                <div class="skill-progress-item">
+                    <div class="skill-name-pct">
+                        <span><i class="fa-solid fa-chart-line" style="color: #34d399;" aria-hidden="true"></i> Sistem
+                            Prediksi & Pengendalian</span>
+                        <span style="color: #34d399;">70%</span>
+                    </div>
+                    <div class="skill-track" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+                        aria-label="Sistem Prediksi & Pengendalian 70%">
+                        <div class="skill-fill" style="width: 70%; background: #34d399;"></div>
+                    </div>
+                    <p class="skill-desc">
+                        Merancang dan mengimplementasikan model prediktif untuk mendukung pengambilan keputusan.
+                        Menggabungkan pendekatan <strong>algoritma greedy</strong> (penjadwalan, optimasi) dengan
+                        <strong>time-series forecasting</strong> dan <strong>sistem kontrol</strong>. Relevan untuk
+                        proyek magang di instansi yang membutuhkan sistem pemantauan, prediksi, dan pengendalian
+                        berbasis data.
+                    </p>
+                </div>
+
+                <!-- 4. Perancangan Database & Prototype -->
+                <div class="skill-progress-item">
+                    <div class="skill-name-pct">
+                        <span><i class="fa-solid fa-database" style="color: #fbbf24;" aria-hidden="true"></i>
+                            Perancangan Database & Prototype</span>
+                        <span style="color: #fbbf24;">85%</span>
+                    </div>
+                    <div class="skill-track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                        aria-label="Perancangan Database & Prototype 85%">
+                        <div class="skill-fill" style="width: 85%; background: #fbbf24;"></div>
+                    </div>
+                    <p class="skill-desc">
+                        Mendesain skema database relasional (<strong>MySQL</strong>, <strong>PostgreSQL</strong>)
+                        maupun non-relasional (<strong>Firestore</strong>, <strong>Supabase</strong>) yang efisien
+                        dan siap produksi. Membangun <strong>prototype</strong> fungsional dengan
+                        <strong>Flutter</strong>
+                        (mobile prototype) untuk memvalidasi kebutuhan pengguna sebelum implementasi penuh.
+                    </p>
+                </div>
+
+                <!-- Tech Stack — Logo Cards with Documentation Links -->
+                <div style="border-top: 2px dashed var(--card-border-soft); padding-top: 18px; margin-top: 10px;">
+                    <h3 class="ecosystem-title">
+                        <i class="fa-solid fa-cubes" style="color: var(--accent-color);" aria-hidden="true"></i>
+                        Ekosistem Proyek:
+                    </h3>
+                    <div class="tech-logo-list">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+                            rel="noopener noreferrer" class="tech-logo-card" title="Dokumentasi HTML5">
+                            <i class="fa-brands fa-html5" style="color: var(--accent-color);" aria-hidden="true"></i>
+                            <span class="tech-label">HTML5</span>
+                        </a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"
+                            rel="noopener noreferrer" class="tech-logo-card" title="Dokumentasi CSS3">
+                            <i class="fa-brands fa-css3-alt" style="color: var(--accent-color);" aria-hidden="true"></i>
+                            <span class="tech-label">CSS3</span>
+                        </a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
+                            rel="noopener noreferrer" class="tech-logo-card" title="Dokumentasi JavaScript">
+                            <i class="fa-brands fa-js" style="color: var(--accent-color);" aria-hidden="true"></i>
+                            <span class="tech-label">JavaScript</span>
+                        </a>
+                        <a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer"
+                            class="tech-logo-card" title="Dokumentasi Python">
+                            <i class="fa-brands fa-python" style="color: var(--accent-color);" aria-hidden="true"></i>
+                            <span class="tech-label">Python</span>
+                        </a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps" target="_blank"
+                            rel="noopener noreferrer" class="tech-logo-card" title="Dokumentasi PWA">
+                            <i class="fa-solid fa-mobile-screen-button" style="color: var(--accent-color);"
+                                aria-hidden="true"></i>
+                            <span class="tech-label">PWA</span>
+                        </a>
+                        <a href="https://docs.flutter.dev/" target="_blank" rel="noopener noreferrer"
+                            class="tech-logo-card" title="Dokumentasi Flutter">
+                            <svg style="width:1.8rem; height:1.8rem; flex-shrink:0;" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="flutter-grad" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="var(--accent-color)" />
+                                        <stop offset="100%" stop-color="var(--accent-color)" />
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#flutter-grad)"
+                                    d="M14.314 0L2.3 12 6 15.7 21.684.012h-7.357zm.014 11.072l-3.5 3.5 3.5 3.5h7.357l-3.5-3.5 3.5-3.5h-7.357z" />
+                            </svg>
+                            <span class="tech-label">Flutter</span>
+                        </a>
+                        <a href="https://scikit-learn.org/stable/documentation.html" target="_blank"
+                            rel="noopener noreferrer" class="tech-logo-card" title="Dokumentasi scikit-learn">
+                            <i class="fa-solid fa-robot" style="color: var(--accent-color);" aria-hidden="true"></i>
+                            <span class="tech-label">scikit-learn</span>
+                        </a>
+                        <a href="https://pandas.pydata.org/docs/" target="_blank" rel="noopener noreferrer"
+                            class="tech-logo-card" title="Dokumentasi pandas">
+                            <i class="fa-solid fa-table" style="color: var(--accent-color);" aria-hidden="true"></i>
+                            <span class="tech-label">pandas</span>
+                        </a>
+                        <a href="https://jupyter.org/documentation" target="_blank" rel="noopener noreferrer"
+                            class="tech-logo-card" title="Dokumentasi Jupyter">
+                            <i class="fa-solid fa-book-open" style="color: var(--accent-color);" aria-hidden="true"></i>
+                            <span class="tech-label">Jupyter</span>
+                        </a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank"
+                            rel="noopener noreferrer" class="tech-logo-card" title="Dokumentasi Web API / REST">
+                            <i class="fa-solid fa-network-wired" style="color: var(--accent-color);"
+                                aria-hidden="true"></i>
+                            <span class="tech-label">REST API</span>
+                        </a>
+                        <a href="https://www.php.net/docs.php" target="_blank" rel="noopener noreferrer"
+                            class="tech-logo-card" title="Dokumentasi PHP">
+                            <i class="fa-brands fa-php" style="color: var(--accent-color);" aria-hidden="true"></i>
+                            <span class="tech-label">PHP</span>
+                        </a>
+                        <a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener noreferrer"
+                            class="tech-logo-card" title="Dokumentasi MySQL">
+                            <i class="fa-solid fa-database" style="color: var(--accent-color);" aria-hidden="true"></i>
+                            <span class="tech-label">MySQL</span>
+                        </a>
+                        <a href="https://www.postgresql.org/docs/" target="_blank" rel="noopener noreferrer"
+                            class="tech-logo-card" title="Dokumentasi PostgreSQL">
+                            <i class="fa-solid fa-server" style="color: var(--accent-color);" aria-hidden="true"></i>
+                            <span class="tech-label">PostgreSQL</span>
+                        </a>
+                        <a href="https://firebase.google.com/docs/firestore" target="_blank" rel="noopener noreferrer"
+                            class="tech-logo-card" title="Dokumentasi Firestore">
+                            <i class="fa-solid fa-fire" style="color: var(--accent-color);" aria-hidden="true"></i>
+                            <span class="tech-label">Firestore</span>
+                        </a>
+                        <a href="https://supabase.com/docs" target="_blank" rel="noopener noreferrer"
+                            class="tech-logo-card" title="Dokumentasi Supabase">
+                            <i class="fa-solid fa-cloud-bolt" style="color: var(--accent-color);"
+                                aria-hidden="true"></i>
+                            <span class="tech-label">Supabase</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Projects Screen Wrapper -->
+    <div id="page-projects" class="page-section inactive" aria-label="Proyek">
+        <!-- Featured Projects Section -->
+        <section id="featured" class="featured-section">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-star" aria-hidden="true"></i> Featured Builds</h2>
+                <div class="featured-grid" id="projects-container">
+                    <!-- Projects will be loaded dynamically from projects.json -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Link to Main Site Section -->
+        <section class="dynamic-section"
+            style="text-align: center; padding: 40px 0 60px; border-top: 2px dashed var(--card-border-soft);">
+            <div class="container">
+                <a href="https://rasyidkurniawan.my.id" data-popup data-title="rasyidkurniawan.my.id"
+                    class="retro-link-btn" style="font-size: 1.25rem;">
+                    < Buka Halaman Utama: rasyidkurniawan.my.id>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 Rasyid Kurniawan. Dibuat dengan metode <strong>vibe coding</strong>.</p>
+            <p style="margin-top: 8px; font-size: 0.7rem; opacity: 0.6; letter-spacing: 0.5px;">
+                TRPL — Politeknik Negeri Medan
+            </p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Entry Point (Clean Architecture Modules) -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

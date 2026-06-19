@@ -1,0 +1,21 @@
+/* ============================================================
+   RESPONSIVE — Media query overrides
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .hero-main-name {
+        font-size: 2rem;
+    }
+
+    .hero-role-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-image-area {
+        height: 300px;
+    }
+
+    .profile-pic-wrapper {
+        width: 240px;
+    }
+}

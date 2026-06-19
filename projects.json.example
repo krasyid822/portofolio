@@ -1,0 +1,26 @@
+[
+    {
+        "name": "SIG Lokasi Bengkel Motor",
+        "category": "Web Application & GIS",
+        "description": "Aplikasi pemetaan analisis spasial berbasis web menggunakan metode Buffer dan Simple Additive Weighting (SAW) untuk menganalisis dan merekomendasikan lokasi strategis pendirian usaha bengkel motor di Kecamatan Medan Baru.",
+        "thumbnail": "https://showcase.trpl.polmed.ac.id/uploads/projects/1780551972_202ae4c9a31ca2a13e06.png",
+        "tech": "PHP · LeafletJS",
+        "url": "https://showcase.trpl.polmed.ac.id/showcase/detail/sistem-informasi-geografis-menggunakan-analisis-buffer-dan-metode-saw-untuk-penentuan-lokasi-strategis-usaha-bengkel-motor-di-kecamatan-medan-baru-1780702853"
+    },
+    {
+        "name": "Heatmap Peta Kebisingan",
+        "category": "Data Visualization",
+        "description": "Aplikasi visualisasi data spasial interaktif untuk memetakan tingkat kebisingan lingkungan perkotaan. Mengimplementasikan layer heatmap di atas peta digital untuk deteksi tingkat kebisingan secara real-time.",
+        "thumbnail": "https://showcase.trpl.polmed.ac.id/uploads/projects/1779853706_be258b7a2a15aaa0de0d.png",
+        "tech": "JS · Map API",
+        "url": "https://showcase.trpl.polmed.ac.id/showcase/detail/heatmap-peta-kebisingan-1779853706"
+    },
+    {
+        "name": "English Class Platform",
+        "category": "Web Application",
+        "description": "Platform pembelajaran digital interaktif kelas Bahasa Inggris untuk menunjang aktivitas belajar-mengajar terstruktur, dilengkapi modul materi interaktif, penilaian, dan kuis pembelajaran mandiri.",
+        "thumbnail": "https://showcase.trpl.polmed.ac.id/uploads/projects/1765939307_4b47d4fc3a93ae97d08e.png",
+        "tech": "HTML · CSS · JS",
+        "url": "https://showcase.trpl.polmed.ac.id/showcase/detail/english-class-web-1779960542"
+    }
+]

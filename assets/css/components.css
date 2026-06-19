@@ -1,0 +1,342 @@
+/* ============================================================
+   COMPONENTS — Cards, Buttons, Badges, Skills, Featured Projects
+   ============================================================ */
+
+/* ─── Retro Link Button ─── */
+.retro-link-btn {
+    font-family: var(--pixel-font);
+    font-size: 0.95rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.retro-link-btn:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* ─── Retro Cards ─── */
+.retro-card {
+    background-color: var(--bg-color);
+    border: var(--card-border);
+    border-radius: 4px;
+    padding: 18px 24px;
+    margin-bottom: 0;
+    transition: border-color 0.3s;
+    overflow-y: auto;
+}
+
+.retro-card:hover {
+    border-color: transparent;
+    background-image:
+        linear-gradient(to right, var(--ants-color) 50%, transparent 50%),
+        linear-gradient(to right, var(--ants-color) 50%, transparent 50%),
+        linear-gradient(to bottom, var(--ants-color) 50%, transparent 50%),
+        linear-gradient(to bottom, var(--ants-color) 50%, transparent 50%);
+    background-position: 0px 0px, 0px 100%, 0px 0px, 100% 0px;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 12px 2px, 12px 2px, 2px 12px, 2px 12px;
+    animation: marching-ants 0.4s linear infinite;
+}
+
+.section-title {
+    font-family: var(--pixel-font);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+}
+
+.section-title i {
+    color: var(--accent-color);
+}
+
+.about-p {
+    font-family: var(--code-font);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* ─── Skills / Workflow Showcase ─── */
+.skills-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skill-progress-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.skill-name-pct {
+    font-family: var(--pixel-font);
+    font-size: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+.skill-track {
+    height: 12px;
+    border: 2px solid var(--text-color);
+    background: var(--bg-color);
+    padding: 1px;
+}
+
+.skill-fill {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+.skill-desc {
+    font-family: var(--code-font);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    text-align: justify;
+}
+
+.ecosystem-title {
+    font-family: var(--pixel-font);
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+/* ─── Tech Logo List (borderless inline icons) ─── */
+.tech-logo-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 28px;
+    justify-content: center;
+}
+
+.tech-logo-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: var(--pixel-font);
+    font-size: 0.85rem;
+    transition: color 0.2s, transform 0.2s;
+    cursor: pointer;
+    white-space: nowrap;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.tech-logo-card:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.tech-logo-card i,
+.tech-logo-card svg {
+    font-size: 1.8rem;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+}
+
+.tech-logo-card:hover i,
+.tech-logo-card:hover svg {
+    transform: scale(1.2);
+}
+
+.tech-logo-card .tech-label {
+    font-size: 0.8rem;
+    line-height: 1;
+}
+
+/* Responsive: tighter on mobile */
+@media (max-width: 480px) {
+    .tech-logo-list {
+        gap: 14px 20px;
+    }
+
+    .tech-logo-card {
+        font-size: 0.75rem;
+    }
+
+    .tech-logo-card i,
+    .tech-logo-card svg {
+        font-size: 1.4rem;
+    }
+}
+
+/* ─── Featured Projects Section ─── */
+.featured-section {
+    padding: 20px 0;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .featured-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.featured-card {
+    display: flex;
+    flex-direction: column;
+    border: var(--card-border);
+    background: var(--bg-color);
+    transition: all 0.3s ease;
+}
+
+.featured-card:hover {
+    border-color: transparent;
+    background-image:
+        linear-gradient(to right, var(--ants-color) 50%, transparent 50%),
+        linear-gradient(to right, var(--ants-color) 50%, transparent 50%),
+        linear-gradient(to bottom, var(--ants-color) 50%, transparent 50%),
+        linear-gradient(to bottom, var(--ants-color) 50%, transparent 50%);
+    background-position: 0px 0px, 0px 100%, 0px 0px, 100% 0px;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 12px 2px, 12px 2px, 2px 12px, 2px 12px;
+    animation: marching-ants 0.4s linear infinite;
+    transform: translateY(-4px);
+}
+
+.featured-thumb {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-bottom: 2px dashed var(--text-color);
+    image-rendering: pixelated;
+}
+
+.featured-content {
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.featured-badge {
+    align-self: flex-start;
+    font-family: var(--pixel-font);
+    font-size: 0.7rem;
+    border: 1px solid var(--accent-color);
+    padding: 4px 8px;
+    color: var(--accent-color);
+    margin-bottom: 12px;
+}
+
+.featured-name {
+    font-family: var(--pixel-font);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.featured-desc {
+    font-size: 1.35rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    flex-grow: 1;
+    text-align: justify;
+}
+
+.featured-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px dashed var(--card-border-soft);
+    font-size: 1.25rem;
+}
+
+.featured-link {
+    font-family: var(--pixel-font);
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.featured-link:hover {
+    color: var(--accent-color);
+}
+
+/* ─── Dynamic Repositories Section ─── */
+.dynamic-section {
+    padding: 50px 0 80px;
+    border-top: 2px dashed rgba(255, 255, 255, 0.1);
+}
+
+.shortcut-card {
+    background-color: var(--bg-color) !important;
+    border: var(--card-border) !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    font-family: var(--terminal-font) !important;
+    color: var(--text-color) !important;
+    padding: 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+.shortcut-card:hover {
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 0 15px var(--accent-glow) !important;
+    transform: translateY(-4px) !important;
+}
+
+.shortcut-badge {
+    font-family: var(--pixel-font) !important;
+    font-size: 0.7rem !important;
+    background: none !important;
+    border: 1px solid var(--accent-color) !important;
+    color: var(--accent-color) !important;
+    border-radius: 0 !important;
+}
+
+.repo-title-container span {
+    font-family: var(--pixel-font) !important;
+    font-size: 0.95rem !important;
+}
+
+/* ─── Animations ─── */
+@keyframes marching-ants {
+    0% {
+        background-position: 0px 0px, 0px 100%, 0px 0px, 100% 0px;
+    }
+
+    100% {
+        background-position: 12px 0px, -12px 100%, 0px -12px, 100% 12px;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(8px);
+    }
+}
