@@ -43,10 +43,53 @@ assets/
         ├── theme-transition.js   # Circular reveal theme toggle
         ├── page-router.js        # SPA page routing
         ├── magnetic-cursor.js    # Mouse attraction effect
-        ├── balloon-popup.js      # Iframe popup system
-        ├── theme-toggle.js       # Light/dark mode
-        ├── projects-loader.js    # Fetch & render projects.json
-        └── service-worker.js     # PWA registration
+        ├── balloon-popup.js           # Iframe popup system
+        ├── theme-toggle.js            # Light/dark mode
+        ├── projects-loader.js         # Fetch & render projects.json
+        ├── acknowledgment-loader.js   # Fetch & render acknowledgment.json
+        └── service-worker.js          # PWA registration
+```
+
+## Penghargaan & Sertifikat (`acknowledgment.json`)
+
+Sertifikat dan penghargaan dimuat dari [`acknowledgment.json`](acknowledgment.json) dan ditampilkan di halaman proyek. Skema:
+
+| Field | Tipe | Wajib | Deskripsi |
+|-------|------|-------|-----------|
+| `title` | string | ✅ | Nama sertifikat/penghargaan |
+| `issuer` | string | ✅ | Penerbit (misal: "BNSP", "UKMI Polmed") |
+| `date` | string | ✅ | Tahun atau tanggal terbit |
+| `description` | string | ❌ | Deskripsi singkat |
+| `image` | string | ✅ | URL gambar sertifikat |
+| `url` | string | ❌ | Link verifikasi/detail (jika ada) |
+
+Jika array kosong (`[]`), seluruh section akan disembunyikan secara otomatis.
+
+## Data Proyek (`projects.json`)
+
+Proyek dimuat secara dinamis dari [`projects.json`](projects.json). Setiap entri memiliki skema berikut:
+
+| Field | Tipe | Wajib | Deskripsi |
+|-------|------|-------|-----------|
+| `name` | string | ✅ | Nama proyek |
+| `category` | string | ✅ | Kategori (misal: "Web Application", "Mobile App") |
+| `description` | string | ✅ | Deskripsi singkat proyek |
+| `thumbnail` | string | ✅ | URL gambar thumbnail (juga digunakan sebagai `poster` untuk video) |
+| `video` | string | ❌ | URL file MP4 — jika ada, thumbnail akan berupa video yang diputar otomatis (muted, loop) |
+| `tech` | string | ✅ | Tech stack yang digunakan (misal: "Flutter · Firebase") |
+| `url` | string | ✅ | Link ke proyek (akan dibuka di balloon popup) |
+
+Contoh dengan video:
+```json
+{
+    "name": "Aplikasi Demo",
+    "category": "Mobile App",
+    "description": "Deskripsi proyek...",
+    "thumbnail": "rsc/jpg/fallback-thumb.jpg",
+    "video": "rsc/video/demo-project.mp4",
+    "tech": "Flutter · Firebase",
+    "url": "https://example.com/demo"
+}
 ```
 
 ## Fitur

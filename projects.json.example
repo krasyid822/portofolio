@@ -22,5 +22,14 @@
         "thumbnail": "https://showcase.trpl.polmed.ac.id/uploads/projects/1765939307_4b47d4fc3a93ae97d08e.png",
         "tech": "HTML · CSS · JS",
         "url": "https://showcase.trpl.polmed.ac.id/showcase/detail/english-class-web-1779960542"
+    },
+    {
+        "name": "Contoh Proyek dengan Video",
+        "category": "Mobile App",
+        "description": "Contoh proyek yang menggunakan video sebagai thumbnail. Video akan diputar otomatis (muted, loop) saat card terlihat di viewport.",
+        "thumbnail": "rsc/jpg/fallback-thumb.jpg",
+        "video": "rsc/video/demo-project.mp4",
+        "tech": "Flutter · Firebase",
+        "url": "https://example.com/proyek-demo"
     }
 ]
