@@ -79,23 +79,41 @@
             // --- Detect iframe load failure ---
             const iframe = popup.querySelector('iframe');
             const fallback = popup.querySelector('.balloon-popup-fallback');
+            const banner = popup.querySelector('.balloon-popup-banner');
+
+            let proxyCheckFinished = false;
+            let proxyCheckPassed = false;
+
+            const isCrossOrigin = new URL(url, window.location.href).origin !== window.location.origin;
+            // Using corsproxy.io (hosted on Cloudflare Workers) to fetch headers of cross-origin URLs
+            const fetchUrl = isCrossOrigin ? `https://corsproxy.io/?${encodeURIComponent(url)}` : url;
 
             // Pre-check via fetch: detect X-Frame-Options / CSP headers
-            // before the iframe loads. Works for same-origin URLs.
-            // For cross-origin, the fetch will fail (CORS) and we fall through.
-            fetch(url, { method: 'HEAD', mode: 'cors', credentials: 'omit' })
+            fetch(fetchUrl, { method: 'GET', credentials: 'omit' })
                 .then(res => {
+                    proxyCheckFinished = true;
                     const xfo = res.headers.get('X-Frame-Options');
                     const csp = res.headers.get('Content-Security-Policy');
+
+                    let blocked = false;
                     if (xfo && (xfo.toUpperCase() === 'DENY' || xfo.toUpperCase() === 'SAMEORIGIN')) {
+                        blocked = true;
+                    } else if (csp && /frame-ancestors/i.test(csp)) {
+                        if (/frame-ancestors\s+('none'|'self')/i.test(csp)) {
+                            blocked = true;
+                        }
+                    }
+
+                    if (blocked) {
                         showFallback(iframe, fallback);
-                    } else if (csp && /frame-ancestors\s+'none'/i.test(csp)) {
-                        showFallback(iframe, fallback);
+                    } else {
+                        proxyCheckPassed = true;
+                        // If it successfully verified that it is not blocked, hide banner if it was shown
+                        if (banner) banner.style.display = 'none';
                     }
                 })
                 .catch(() => {
-                    // CORS or network error — cannot pre-check headers.
-                    // Fall through to iframe-based detection below.
+                    proxyCheckFinished = true;
                 });
 
             // If iframe fails to load (network error, DNS failure, etc.)
@@ -103,10 +121,7 @@
                 showFallback(iframe, fallback);
             });
 
-            // Detect blocking via load event.
-            // When X-Frame-Options blocks, the browser still fires 'load'
-            // but renders an empty document. For same-origin iframes we can
-            // check contentDocument.body directly.
+            // Detect blocking via load event (same-origin only)
             let loadCount = 0;
             iframe.addEventListener('load', () => {
                 loadCount++;
@@ -116,22 +131,17 @@
                         const body = iframe.contentDocument.body;
                         const textLen = (body.textContent || '').trim().length;
                         const hasMedia = body.querySelectorAll('img, svg, canvas, video, object, embed').length > 0;
-                        // Blocked pages render a blank body with no meaningful content
                         if (textLen < 30 && !hasMedia && loadCount > 1) {
                             showFallback(iframe, fallback);
                         }
                     }
-                    // contentDocument is null for cross-origin iframes (both
-                    // blocked and successful). We cannot distinguish them here.
                 } catch (_) { }
             });
 
-            const banner = popup.querySelector('.balloon-popup-banner');
-
             // Timeout-based detection:
             // - Same-origin: check if body is blank after 3 seconds, show fallback if empty.
-            // - Cross-origin: since we cannot read the contents, we don't hide the iframe
-            //   (to allow successful cross-origin loads), but we show a bottom helper banner after 1.5 seconds.
+            // - Cross-origin: show a bottom helper banner after 2.5 seconds ONLY if the proxy check
+            //   did not explicitly pass (e.g. proxy failed, timed out, or is still loading).
             setTimeout(() => {
                 if (fallback.style.display === 'flex') return;
 
@@ -145,14 +155,18 @@
                             showFallback(iframe, fallback);
                         }
                     } else {
-                        // Cross-origin: contentDocument is null, show bottom helper banner instead of hiding
-                        if (banner) banner.style.display = 'flex';
+                        // Cross-origin: show helper banner if proxy check did not explicitly confirm allowed
+                        if (!proxyCheckPassed && banner) {
+                            banner.style.display = 'flex';
+                        }
                     }
                 } catch (_) {
-                    // Cross-origin access error, show bottom helper banner instead of hiding
-                    if (banner) banner.style.display = 'flex';
+                    // Cross-origin access error: show helper banner if proxy check did not confirm allowed
+                    if (!proxyCheckPassed && banner) {
+                        banner.style.display = 'flex';
+                    }
                 }
-            }, 1500);
+            }, 2500);
         }
 
         // Close button

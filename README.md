@@ -111,3 +111,6 @@ npx serve .
 ## Domain
 
 Production: [https://portofolio.rasyidkurniawan.my.id](https://portofolio.rasyidkurniawan.my.id)
+
+## Catatan
+- paksa mobile view untuk render ke desktop mode
