@@ -53,6 +53,26 @@
     flex-shrink: 0;
 }
 
+.balloon-popup-help-text {
+    font-family: var(--code-font);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    opacity: 0.8;
+    max-width: 150px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: opacity 0.8s ease, max-width 0.8s ease, margin-right 0.8s ease;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.balloon-popup-help-text.fade-out {
+    opacity: 0;
+    max-width: 0;
+    margin-right: 0;
+}
+
 .balloon-popup-open-tab {
     font-family: var(--pixel-font);
     font-size: 0.9rem;

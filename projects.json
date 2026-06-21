@@ -1,7 +1,7 @@
 [
     {
-        "name": "WebApp Jadwal Sholat",
-        "category": ["Web Application", "Offline", "Push Notification"],
+        "name": "Jadwal Sholat",
+        "category": ["Web Application", "Offline", "Push Notification", "Compass"],
         "description": "Aplikasi web yang menampilkan jadwal sholat berdasarkan lokasi pengguna. Aplikasi ini juga menyediakan fitur arah kiblat, kalender masehi-hijriah, dan peralihan metode antar NU atau Muhammadiyah.",
         "thumbnail": "https://raw.githubusercontent.com/krasyid822/sholat_nu_muhamadiyah/f30eb60de401d4d2fda2923dfc27656a759bf250/assets/demo/al-waqt.gif",
         "video" : "https://raw.githubusercontent.com/krasyid822/sholat_nu_muhamadiyah/f30eb60de401d4d2fda2923dfc27656a759bf250/assets/demo/al-waqt.webm",
@@ -9,28 +9,21 @@
         "url": "https://al-waqt-9cdb7.web.app/"
     },
     {
-        "name": "Heatmap Peta Kebisingan",
-        "category": "Data Visualization",
-        "description": "Aplikasi visualisasi data spasial interaktif untuk memetakan tingkat kebisingan lingkungan perkotaan. Mengimplementasikan layer heatmap di atas peta digital untuk deteksi tingkat kebisingan secara real-time.",
-        "thumbnail": "https://showcase.trpl.polmed.ac.id/uploads/projects/1779853706_be258b7a2a15aaa0de0d.png",
-        "tech": "JS · Map API",
-        "url": "https://showcase.trpl.polmed.ac.id/showcase/detail/heatmap-peta-kebisingan-1779853706"
+        "name": "Amalan Yaumiyah",
+        "category": ["Web Application", "Offline", "Auto-detect Forbidden Days"],
+        "description": "Aplikasi pengelola ibadah harian. Menyediakan pencatatan ibadah wajib, sunnah, dan lain sebagainya.",
+        "thumbnail": "https://raw.githubusercontent.com/krasyid822/git-ftp-amalanyumiyah/970b7e1d37efd195d36c0980a19f3dc4f27ef30c/test/assets/demo/amal-yaum.gif",
+        "video": "https://raw.githubusercontent.com/krasyid822/git-ftp-amalanyumiyah/970b7e1d37efd195d36c0980a19f3dc4f27ef30c/test/assets/demo/amal-yaum.webm",
+        "tech": ["PHP", "Json", "InfinityFree"],
+        "url": "https://amalanyaumiyah.xo.je/"
     },
     {
-        "name": "English Class Platform",
-        "category": "Web Application",
-        "description": "Platform pembelajaran digital interaktif kelas Bahasa Inggris untuk menunjang aktivitas belajar-mengajar terstruktur, dilengkapi modul materi interaktif, penilaian, dan kuis pembelajaran mandiri.",
-        "thumbnail": "https://showcase.trpl.polmed.ac.id/uploads/projects/1765939307_4b47d4fc3a93ae97d08e.png",
-        "tech": "HTML · CSS · JS",
-        "url": "https://showcase.trpl.polmed.ac.id/showcase/detail/english-class-web-1779960542"
-    },
-    {
-        "name": "Contoh Proyek dengan Video",
-        "category": "Mobile App",
-        "description": "Contoh proyek yang menggunakan file GIF sebagai thumbnail. Mengklik thumbnail ini akan langsung meluncurkan demo video utama dalam jendela popup.",
-        "thumbnail": "rsc/gif/demo-project.gif",
-        "video": "rsc/video/demo-project.mp4",
-        "tech": "Flutter · Firebase",
-        "url": "https://example.com/proyek-demo"
+        "name": "UkmiPolmed.my.id",
+        "category": ["Web Information", "Blog", "Included Web Managenmet"],
+        "description": "Website resmi Unit Kegiatan Mahasiswa Uslam Politeknik Negeri Medan. Menyediakan informasi kegiatan mahasiswa dan lain sebagainya.",
+        "thumbnail": "https://raw.githubusercontent.com/krasyid822/ukmipolmed.xo.je/db1a5953a2718caa7f27e191aba7d3679c0f04d8/assets/demo/ukmi-polmed.gif",
+        "video": "https://raw.githubusercontent.com/krasyid822/ukmipolmed.xo.je/db1a5953a2718caa7f27e191aba7d3679c0f04d8/assets/demo/ukmi-polmed.webm",
+        "tech": ["PHP", "Json", "InfinityFree"],
+        "url": "https://ukmipolmed.my.id/"
     }
 ]
