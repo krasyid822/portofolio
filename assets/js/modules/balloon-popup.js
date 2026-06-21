@@ -32,6 +32,12 @@
         } else {
             bodyContent = `
                 <iframe src="${escapeHtml(url)}" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" title="${escapeHtml(title || url)}"></iframe>
+                <div class="balloon-popup-banner" style="display: none;">
+                    <span>Situs tidak dapat dimuat atau menolak koneksi?</span>
+                    <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="balloon-popup-banner-link">
+                        Buka di Tab Baru <i class="fa-solid fa-external-link-alt"></i>
+                    </a>
+                </div>
                 <div class="balloon-popup-fallback" style="display: none;">
                     <div class="balloon-popup-fallback-content">
                         <i class="fa-solid fa-lock" style="font-size: 2rem; margin-bottom: 12px; opacity: 0.6;"></i>
@@ -120,10 +126,12 @@
                 } catch (_) { }
             });
 
-            // Timeout-based detection: after 3 seconds, check if the iframe
-            // rendered anything. For cross-origin iframes, since we cannot read
-            // their content and almost all external sites block iframe embedding,
-            // we automatically show the fallback.
+            const banner = popup.querySelector('.balloon-popup-banner');
+
+            // Timeout-based detection:
+            // - Same-origin: check if body is blank after 3 seconds, show fallback if empty.
+            // - Cross-origin: since we cannot read the contents, we don't hide the iframe
+            //   (to allow successful cross-origin loads), but we show a bottom helper banner after 1.5 seconds.
             setTimeout(() => {
                 if (fallback.style.display === 'flex') return;
 
@@ -137,14 +145,14 @@
                             showFallback(iframe, fallback);
                         }
                     } else {
-                        // Cross-origin: contentDocument is null
-                        showFallback(iframe, fallback);
+                        // Cross-origin: contentDocument is null, show bottom helper banner instead of hiding
+                        if (banner) banner.style.display = 'flex';
                     }
                 } catch (_) {
-                    // Cross-origin access error
-                    showFallback(iframe, fallback);
+                    // Cross-origin access error, show bottom helper banner instead of hiding
+                    if (banner) banner.style.display = 'flex';
                 }
-            }, 3000);
+            }, 1500);
         }
 
         // Close button
