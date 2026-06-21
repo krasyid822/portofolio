@@ -81,46 +81,28 @@
             const fallback = popup.querySelector('.balloon-popup-fallback');
             const banner = popup.querySelector('.balloon-popup-banner');
 
-            let proxyCheckFinished = false;
-            let proxyCheckPassed = false;
+            // Whitelist of cross-origin domains that are known to ALLOW iframe embedding
+            const iframeWhitelist = [
+                'al-waqt-9cdb7.web.app',
+                'localhost',
+                '127.0.0.1',
+                'rasyidkurniawan.my.id'
+            ];
 
-            const isCrossOrigin = new URL(url, window.location.href).origin !== window.location.origin;
-            // Using corsproxy.io (hosted on Cloudflare Workers) to fetch headers of cross-origin URLs
-            const fetchUrl = isCrossOrigin ? `https://corsproxy.io/?${encodeURIComponent(url)}` : url;
+            const urlObj = new URL(url, window.location.href);
+            const isCrossOrigin = urlObj.origin !== window.location.origin;
+            const isWhitelisted = iframeWhitelist.some(domain => urlObj.hostname.includes(domain));
+
+            // Instant fallback for non-whitelisted cross-origin sites (like showcase.trpl.polmed.ac.id)
+            if (isCrossOrigin && !isWhitelisted) {
+                showFallback(iframe, fallback);
+            }
 
             // Direct reachability pre-check (detects connection refused/offline)
             fetch(url, { method: 'HEAD', mode: 'no-cors' })
                 .catch(() => {
                     // Direct connection failed -> server is down or refused connection
                     showFallback(iframe, fallback);
-                });
-
-            // Pre-check via fetch: detect X-Frame-Options / CSP headers
-            fetch(fetchUrl, { method: 'GET', credentials: 'omit' })
-                .then(res => {
-                    proxyCheckFinished = true;
-                    const xfo = res.headers.get('X-Frame-Options');
-                    const csp = res.headers.get('Content-Security-Policy');
-
-                    let blocked = false;
-                    if (xfo && (xfo.toUpperCase() === 'DENY' || xfo.toUpperCase() === 'SAMEORIGIN')) {
-                        blocked = true;
-                    } else if (csp && /frame-ancestors/i.test(csp)) {
-                        if (/frame-ancestors\s+('none'|'self')/i.test(csp)) {
-                            blocked = true;
-                        }
-                    }
-
-                    if (blocked) {
-                        showFallback(iframe, fallback);
-                    } else {
-                        proxyCheckPassed = true;
-                        // If it successfully verified that it is not blocked, hide banner if it was shown
-                        if (banner) banner.style.display = 'none';
-                    }
-                })
-                .catch(() => {
-                    proxyCheckFinished = true;
                 });
 
             // If iframe fails to load (network error, DNS failure, etc.)
@@ -147,8 +129,7 @@
 
             // Timeout-based detection:
             // - Same-origin: check if body is blank after 3 seconds, show fallback if empty.
-            // - Cross-origin: show a bottom helper banner after 2.5 seconds ONLY if the proxy check
-            //   did not explicitly pass (e.g. proxy failed, timed out, or is still loading).
+            // - Cross-origin: show bottom helper banner after 2.5 seconds ONLY if it is whitelisted (safety helper)
             setTimeout(() => {
                 if (fallback.style.display === 'flex') return;
 
@@ -161,16 +142,13 @@
                         if (textLen < 30 && !hasMedia) {
                             showFallback(iframe, fallback);
                         }
-                    } else {
-                        // Cross-origin: show helper banner if proxy check did not explicitly confirm allowed
-                        if (!proxyCheckPassed && banner) {
-                            banner.style.display = 'flex';
-                        }
+                    } else if (isCrossOrigin && isWhitelisted) {
+                        // Cross-origin and whitelisted: show bottom banner after 2.5s if it takes too long
+                        if (banner) banner.style.display = 'flex';
                     }
                 } catch (_) {
-                    // Cross-origin access error: show helper banner if proxy check did not confirm allowed
-                    if (!proxyCheckPassed && banner) {
-                        banner.style.display = 'flex';
+                    if (isCrossOrigin && isWhitelisted) {
+                        if (banner) banner.style.display = 'flex';
                     }
                 }
             }, 2500);
