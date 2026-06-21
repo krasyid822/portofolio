@@ -247,7 +247,7 @@ header.top-nav .nav-flex {
 footer.main-footer {
     background: var(--bg-color);
     color: var(--text-muted);
-    padding: 40px 0;
+    padding: 16px 0;
     text-align: center;
     border-top: 2px dashed var(--card-border-soft);
     font-family: var(--pixel-font);
