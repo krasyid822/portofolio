@@ -107,9 +107,10 @@
             } catch (_) { }
         });
 
-        // Timeout-based detection: after 5 seconds, check if the iframe
-        // rendered anything. For cross-origin iframes, we use a no-cors
-        // fetch to verify the server is reachable.
+        // Timeout-based detection: after 3 seconds, check if the iframe
+        // rendered anything. For cross-origin iframes, since we cannot read
+        // their content and almost all external sites block iframe embedding,
+        // we automatically show the fallback.
         setTimeout(() => {
             if (fallback.style.display === 'flex') return;
 
@@ -123,35 +124,14 @@
                         showFallback(iframe, fallback);
                     }
                 } else {
-                    // Cross-origin: contentDocument is null.
-                    // Use no-cors fetch to check server reachability.
-                    fetch(url, { method: 'HEAD', mode: 'no-cors' })
-                        .then(() => {
-                            // Server is reachable but iframe contentDocument
-                            // is null — likely X-Frame-Options blocking.
-                            // Check iframe height as additional heuristic.
-                            if (iframe.offsetHeight < 80) {
-                                showFallback(iframe, fallback);
-                            }
-                        })
-                        .catch(() => {
-                            // Network error — definitely blocked/unreachable
-                            showFallback(iframe, fallback);
-                        });
+                    // Cross-origin: contentDocument is null
+                    showFallback(iframe, fallback);
                 }
             } catch (_) {
                 // Cross-origin access error
-                fetch(url, { method: 'HEAD', mode: 'no-cors' })
-                    .then(() => {
-                        if (iframe.offsetHeight < 80) {
-                            showFallback(iframe, fallback);
-                        }
-                    })
-                    .catch(() => {
-                        showFallback(iframe, fallback);
-                    });
+                showFallback(iframe, fallback);
             }
-        }, 5000);
+        }, 3000);
 
         // Close button
         const closeBtn = popup.querySelector('.balloon-popup-close');

@@ -1,1 +1,26 @@
-[]
+[
+    {
+        "title": "Sertifikat Kompetensi Front End Web Developer",
+        "issuer": "Badan Nasional Sertifikasi Profesi (BNSP)",
+        "date": "2024",
+        "description": "Sertifikat kompetensi yang menyatakan penguasaan dasar-dasar pengembangan web front-end, meliputi HTML5, CSS3, dan JavaScript.",
+        "image": "rsc/jpg/sertifikat-frontend.jpg",
+        "url": "https://example.com/verifikasi-sertifikat"
+    },
+    {
+        "title": "Sekolah Mentor UKMI Polmed 2025",
+        "issuer": "UKMI Polmed",
+        "date": "2025",
+        "description": "Program pembinaan mentor yang mencakup pelatihan kepemimpinan, komunikasi, dan pengembangan diri.",
+        "image": "rsc/jpg/sertifikat-mentor.jpg",
+        "url": ""
+    },
+    {
+        "title": "Juara 1 Lomba Karya Tulis Ilmiah",
+        "issuer": "Politeknik Negeri Medan",
+        "date": "2025",
+        "description": "Penghargaan atas karya tulis ilmiah tentang penerapan kecerdasan buatan dalam sistem prediksi.",
+        "image": "rsc/jpg/sertifikat-lkti.jpg",
+        "url": "https://example.com/karya-tulis"
+    }
+]

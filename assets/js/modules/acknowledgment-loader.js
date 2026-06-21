@@ -74,8 +74,8 @@
                     const link = document.createElement('a');
                     link.href = item.url;
                     link.className = 'acknowledgment-link';
-                    link.target = '_blank';
-                    link.rel = 'noopener noreferrer';
+                    link.setAttribute('data-popup', '');
+                    link.setAttribute('data-title', item.title || 'Lihat Sertifikat');
                     link.textContent = 'Lihat Sertifikat';
                     link.innerHTML += ' <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>';
                     info.appendChild(link);
