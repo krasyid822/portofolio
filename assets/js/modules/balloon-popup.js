@@ -88,6 +88,13 @@
             // Using corsproxy.io (hosted on Cloudflare Workers) to fetch headers of cross-origin URLs
             const fetchUrl = isCrossOrigin ? `https://corsproxy.io/?${encodeURIComponent(url)}` : url;
 
+            // Direct reachability pre-check (detects connection refused/offline)
+            fetch(url, { method: 'HEAD', mode: 'no-cors' })
+                .catch(() => {
+                    // Direct connection failed -> server is down or refused connection
+                    showFallback(iframe, fallback);
+                });
+
             // Pre-check via fetch: detect X-Frame-Options / CSP headers
             fetch(fetchUrl, { method: 'GET', credentials: 'omit' })
                 .then(res => {
@@ -189,7 +196,6 @@
     function showFallback(iframe, fallback) {
         if (!iframe || !fallback) return;
         if (fallback.style.display === 'flex') return; // already shown
-        iframe.style.display = 'none';
         fallback.style.display = 'flex';
     }
 
