@@ -18,4 +18,80 @@
     .profile-pic-wrapper {
         width: 240px;
     }
+
+    /* ─── Mobile: Header → position fixed (keluar dari flex flow) ─── */
+    header.top-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 8px 0;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.3s ease;
+        z-index: 1000;
+    }
+
+    header.top-nav .nav-flex {
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 0.82rem;
+    }
+
+    .theme-toggle-btn {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+        margin-left: 4px;
+    }
+
+    /* ─── Mobile: Footer → position fixed (keluar dari flex flow) ─── */
+    footer.main-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 0.72rem;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.3s ease;
+        z-index: 1000;
+    }
+
+    footer.main-footer p[style] {
+        font-size: 0.62rem !important;
+        margin-top: 4px !important;
+    }
+
+    /* ─── Kompensasi tinggi fixed header & footer ─── */
+    /* !important diperlukan untuk menimpa inline style di HTML        */
+    /* (contoh: #page-about memiliki style="padding-top: 16px").      */
+    .page-section {
+        padding-top: 52px !important;
+        padding-bottom: 48px !important;
+    }
+
+    /* ─── Hide saat scroll: geser keluar layar ─── */
+    header.top-nav.nav-hidden {
+        transform: translateY(-110%);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    footer.main-footer.nav-hidden {
+        transform: translateY(110%);
+        opacity: 0;
+        pointer-events: none;
+    }
+
 }

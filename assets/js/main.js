@@ -31,6 +31,7 @@
         'assets/js/modules/projects-loader.js',
         'assets/js/modules/acknowledgment-loader.js',
         'assets/js/modules/service-worker.js',
+        'assets/js/modules/scroll-nav.js',
     ];
 
     scripts.forEach(function (src) {
