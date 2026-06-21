@@ -304,6 +304,55 @@
     color: var(--accent-color);
 }
 
+/* ─── Featured More Card ─── */
+.featured-more-card {
+    border: var(--card-border);
+    background: var(--bg-color);
+    transition: all 0.3s ease;
+    display: flex;
+    min-height: 290px;
+}
+
+.featured-more-link {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 30px 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.featured-more-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.featured-more-text {
+    font-family: var(--pixel-font);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    transition: color 0.2s;
+}
+
+.featured-more-sub {
+    font-family: var(--code-font);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.featured-more-link:hover .featured-more-text {
+    color: var(--accent-color);
+    text-shadow: 0 0 8px var(--accent-glow);
+}
+
 /* ─── Acknowledgment / Certificate Cards ─── */
 #acknowledgment-container {
     display: flex;

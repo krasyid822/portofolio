@@ -71,6 +71,20 @@
                 `;
                 container.appendChild(card);
             });
+
+            // Append the "Lihat Lebih Banyak" card pointing to rasyidkurniawan.my.id
+            const moreCard = document.createElement('div');
+            moreCard.className = 'featured-card featured-more-card';
+            moreCard.innerHTML = `
+                <a href="https://rasyidkurniawan.my.id" data-popup data-title="rasyidkurniawan.my.id" class="featured-more-link">
+                    <div class="featured-more-content">
+                        <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 2.5rem; margin-bottom: 16px; color: var(--accent-color);"></i>
+                        <span class="featured-more-text">LIHAT LEBIH BANYAK</span>
+                        <span class="featured-more-sub">rasyidkurniawan.my.id</span>
+                    </div>
+                </a>
+            `;
+            container.appendChild(moreCard);
         })
         .catch(error => console.error('Gagal memuat proyek:', error));
 

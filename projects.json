@@ -32,13 +32,5 @@
         "video": "rsc/video/demo-project.mp4",
         "tech": "Flutter · Firebase",
         "url": "https://example.com/proyek-demo"
-    },
-    {
-        "name": "RasyidKurniawan.my.id",
-        "category": "Main Portal",
-        "description": "Kunjungi halaman utama rasyidkurniawan.my.id untuk melihat portofolio utama, artikel blog, dan proyek selengkapnya. (Lihat lebih banyak)",
-        "thumbnail": "rsc/jpg/me.svg",
-        "tech": ["Web", "Portal"],
-        "url": "https://rasyidkurniawan.my.id"
     }
 ]
