@@ -37,7 +37,8 @@
                 <div class="balloon-popup-header">
                     <span class="balloon-popup-title">${escapeHtml(title || url)}</span>
                     <div class="balloon-popup-header-actions">
-                        <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="balloon-popup-open-tab" title="Web gagal diload? Buka di tab baru" aria-label="Buka di tab baru">
+                        <span class="balloon-popup-help-text" style="font-family: var(--code-font); font-size: 0.75rem; color: var(--text-muted); opacity: 0.8;">Web gagal diload?</span>
+                        <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="balloon-popup-open-tab" title="Buka di tab baru" aria-label="Buka di tab baru">
                             <i class="fa-solid fa-external-link-alt"></i>
                         </a>
                         <button class="balloon-popup-close" aria-label="Tutup">&times;</button>
