@@ -26,8 +26,8 @@
     {
         "name": "Contoh Proyek dengan Video",
         "category": "Mobile App",
-        "description": "Contoh proyek yang menggunakan video sebagai thumbnail. Video akan diputar otomatis (muted, loop) saat card terlihat di viewport.",
-        "thumbnail": "rsc/jpg/fallback-thumb.jpg",
+        "description": "Contoh proyek yang menggunakan file GIF sebagai thumbnail. Mengklik thumbnail ini akan langsung meluncurkan demo video utama dalam jendela popup.",
+        "thumbnail": "rsc/gif/demo-project.gif",
         "video": "rsc/video/demo-project.mp4",
         "tech": "Flutter · Firebase",
         "url": "https://example.com/proyek-demo"

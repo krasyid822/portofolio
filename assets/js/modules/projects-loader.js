@@ -26,16 +26,13 @@
                 const card = document.createElement('div');
                 card.className = 'featured-card';
 
-                // Build thumbnail: use <video> if project has a "video" field, else <img>
+                // Build thumbnail: use image/gif linked to the video if project has a "video" field, else normal image
                 let thumbHtml;
                 if (project.video) {
                     thumbHtml = `
-                        <video class="featured-thumb featured-video" autoplay muted loop playsinline
-                            poster="${escapeHtml(project.thumbnail)}"
-                            aria-label="${escapeHtml(project.name)} demo video">
-                            <source src="${escapeHtml(project.video)}" type="video/mp4">
-                            <img src="${escapeHtml(project.thumbnail)}" alt="${escapeHtml(project.name)}" class="featured-thumb">
-                        </video>`;
+                        <a href="${escapeHtml(project.video)}" data-popup data-title="${escapeHtml(project.name)} — Demo Video" class="featured-thumb-link">
+                            <img src="${escapeHtml(project.thumbnail)}" alt="${escapeHtml(project.name)}" class="featured-thumb" loading="lazy">
+                        </a>`;
                 } else {
                     thumbHtml = `<img src="${escapeHtml(project.thumbnail)}" alt="${escapeHtml(project.name)}" class="featured-thumb" loading="lazy">`;
                 }
