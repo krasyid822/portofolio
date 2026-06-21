@@ -1,11 +1,11 @@
 [
     {
         "name": "WebApp Jadwal Sholat",
-        "category": "Web Application, Offline, Push Notification",
+        "category": ["Web Application", "Offline", "Push Notification"],
         "description": "Aplikasi web yang menampilkan jadwal sholat berdasarkan lokasi pengguna. Aplikasi ini juga menyediakan fitur arah kiblat, kalender masehi-hijriah, dan peralihan metode antar NU atau Muhammadiyah.",
         "thumbnail": "https://raw.githubusercontent.com/krasyid822/sholat_nu_muhamadiyah/f30eb60de401d4d2fda2923dfc27656a759bf250/assets/demo/al-waqt.gif",
         "video" : "https://raw.githubusercontent.com/krasyid822/sholat_nu_muhamadiyah/f30eb60de401d4d2fda2923dfc27656a759bf250/assets/demo/al-waqt.webm",
-        "tech": "Flutter Web, JS",
+        "tech": ["Flutter Web", "JS"],
         "url": "https://al-waqt-9cdb7.web.app/"
     },
     {

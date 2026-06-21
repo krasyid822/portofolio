@@ -244,6 +244,17 @@
     flex-grow: 1;
 }
 
+.featured-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.featured-badges .featured-badge {
+    margin-bottom: 0;
+}
+
 .featured-badge {
     align-self: flex-start;
     font-family: var(--pixel-font);
