@@ -1,11 +1,12 @@
 [
     {
-        "name": "SIG Lokasi Bengkel Motor",
-        "category": "Web Application & GIS",
-        "description": "Aplikasi pemetaan analisis spasial berbasis web menggunakan metode Buffer dan Simple Additive Weighting (SAW) untuk menganalisis dan merekomendasikan lokasi strategis pendirian usaha bengkel motor di Kecamatan Medan Baru.",
-        "thumbnail": "https://showcase.trpl.polmed.ac.id/uploads/projects/1780551972_202ae4c9a31ca2a13e06.png",
-        "tech": "PHP · LeafletJS",
-        "url": "https://showcase.trpl.polmed.ac.id/showcase/detail/sistem-informasi-geografis-menggunakan-analisis-buffer-dan-metode-saw-untuk-penentuan-lokasi-strategis-usaha-bengkel-motor-di-kecamatan-medan-baru-1780702853"
+        "name": "WebApp Jadwal Sholat",
+        "category": "Web Application, Offline, Push Notification",
+        "description": "Aplikasi web yang menampilkan jadwal sholat berdasarkan lokasi pengguna. Aplikasi ini juga menyediakan fitur arah kiblat, kalender masehi-hijriah, dan peralihan metode antar NU atau Muhammadiyah.",
+        "thumbnail": "https://raw.githubusercontent.com/krasyid822/sholat_nu_muhamadiyah/f30eb60de401d4d2fda2923dfc27656a759bf250/assets/demo/al-waqt.gif",
+        "video" : "https://raw.githubusercontent.com/krasyid822/sholat_nu_muhamadiyah/f30eb60de401d4d2fda2923dfc27656a759bf250/assets/demo/al-waqt.webm",
+        "tech": "Flutter Web, JS",
+        "url": "https://al-waqt-9cdb7.web.app/"
     },
     {
         "name": "Heatmap Peta Kebisingan",
